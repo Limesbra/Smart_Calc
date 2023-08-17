@@ -1,84 +1,5 @@
-#include <ctype.h>
-#include <math.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "SmartCalc_v1.h"
 
-typedef enum {
-  NUM,
-  plus,
-  minus,
-  mult,
-  DIV,
-  MOD,
-  POW,
-  SQRT,
-  LOG,
-  LN,
-  SIN,
-  ASIN,
-  COS,
-  ACOS,
-  TAN,
-  ATAN,
-  leftScobe,
-  rightScobe
-} lexeme_type;
-
-typedef enum {
-  variable = -1,
-  number,
-  plus_or_minus,
-  mult_or_div,
-  mod = 2,
-  PPOW,
-  PSQRT = -2,
-  log_or_ln = -3,
-  trigonometry = -4,
-  scobe = 6
-} lexeme_priority;
-
-typedef struct {
-  double value[255];
-  int priority[255];
-  int type[255];
-  int counter;
-} L;
-
-int S21_SmartCalc(char *expression, char *expression_for_x, double *result);
-int parser(char *expression, char *expression_for_x, L *pars);
-void setInputLexeme(L *pars, double num, lexeme_type type,
-                    lexeme_priority type_1, int *step);
-int trigonometryCheck(char *expression, L *pars, int *error);
-int scobeChecker(char *expression, L *pars, int *s_counter, int *error);
-int logChecker(char *expression, L *pars);
-int arithmeticSign(char *expression, L *pars, int *error);
-int validSign(char *expression, L *pars);
-int constAnalyze(char *expression, char *expression_for_x, L *pars, int *error);
-int handlerNum(char **expression, L *pars, int *error);
-void RPN(L *pars, L *output, L *stack);
-void setStackZero(L *stack);
-void mathProcess(L *output, L *stack, double **result);
-void multDivMod(L *output, L *stack, int i);
-void mathFunction(L *output, L *stack, int i);
-void plusMinusOperators(L *output, L *stack, int i);
-void isNumber(L *output, L *stack, int i);
-void powOperator(L *output, L *stack, int i);
-void RpnMathOperators(L *pars, L *stack, int i);
-void RpnScobe(L *pars, L *output, L *stack, int i);
-
-int main() {
-  // char expression[255] = "log(sqrt(2^3*cos(0)))";
-  double result = 0;
-  char expression[255] = "-5";
-  char expression_for_x[255] = "1";
-  char answer[255] = "";
-  // L pars ={0, 0, 0, 0};
-  int x = S21_SmartCalc(expression, expression_for_x, &result);
-  printf("%d\n", x);
-
-  return 0;
-}
 
 int S21_SmartCalc(char *expression, char *expression_for_x, double *result) {
   L pars = {0, 0, 0, 0};
@@ -86,12 +7,6 @@ int S21_SmartCalc(char *expression, char *expression_for_x, double *result) {
   L stack = {0, 0, 0, 0};
   int error = 0;
   error = parser(expression, expression_for_x, &pars);
-  for(int i = 0; i < pars.counter; i++){
-    printf("%lf ", pars.value[i]);
-    printf("%d ", pars.type[i]);
-    printf("%d ", pars.priority[i]);
-    printf("\n");
-  }
   if (error == 0) {
     RPN(&pars, &output, &stack);
     mathProcess(&output, &stack, &result);
@@ -230,7 +145,7 @@ int arithmeticSign(char *expression, L *pars, int *error) {
 
 int validSign(char *expression, L *pars) {
   int valid = 0;
-  if (isdigit(*(expression + 1)) != 0) {
+  if (isdigit(*(expression + 1)) != 0 || *(expression + 1) == 'X') {
     valid++;
   } else if (*(expression + 1) == '(') {
     valid++;
