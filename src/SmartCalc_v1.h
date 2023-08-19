@@ -62,13 +62,13 @@ int validSign(char *expression, L *pars);
 int constAnalyze(char *expression, char *expression_for_x, L *pars, int *error);
 int handlerNum(char **expression, L *pars, int *error);
 void RPN(L *pars, L *output, L *stack);
-void setStackZero(L *stack);
+void toZero(L *a);
 void mathProcess(L *output, L *stack, double **result);
 void multDivMod(L *output, L *stack, int i);
 void mathFunction(L *output, L *stack, int i);
 void plusMinusOperators(L *output, L *stack, int i);
 void isNumber(L *output, L *stack, int i);
-void powOperator(L *output, L *stack, int i);
+void powOperator(L *stack);
 void RpnMathOperators(L *pars, L *stack, int i);
 void RpnScobe(L *pars, L *output, L *stack, int i);
 

@@ -2,9 +2,12 @@
 
 
 int S21_SmartCalc(char *expression, char *expression_for_x, double *result) {
-  L pars = {0, 0, 0, 0};
-  L output = {0, 0, 0, 0};
-  L stack = {0, 0, 0, 0};
+  L pars;
+  L output;
+  L stack;
+  toZero(&pars);
+  toZero(&output);
+  toZero(&stack);
   int error = 0;
   error = parser(expression, expression_for_x, &pars);
   if (error == 0) {
@@ -41,7 +44,6 @@ void setInputLexeme(L *pars, double num, lexeme_type type,
   pars->type[pars->counter] = type;
   pars->counter += 1;
   *step += 1;
-  // printf("!!!%d\n", step);
 }
 
 int trigonometryCheck(char *expression, L *pars, int *error) {
@@ -235,7 +237,7 @@ void RPN(L *pars, L *output, L *stack) {
 }
 
 void mathProcess(L *output, L *stack, double **result) {
-  setStackZero(stack);
+  toZero(stack);
   for (int i = 0; i < output->counter; i++) {
     if (output->type[i] == NUM) {
       isNumber(output, stack, i);
@@ -249,20 +251,10 @@ void mathProcess(L *output, L *stack, double **result) {
                output->priority[i] == mod) {
       multDivMod(output, stack, i);
     } else if (output->priority[i] == PPOW) {
-      powOperator(output, stack, i);
+      powOperator(stack);
     }
   }
   **result = stack->value[0];
-  // printf("%lf\n", result);
-}
-
-void setStackZero(L *stack) {
-  for (int i = 0; i < 255; i++) {
-    stack->value[i] = 0;
-    stack->type[i] = 0;
-    stack->priority[i] = 0;
-  }
-  stack->counter = 0;
 }
 
 void multDivMod(L *output, L *stack, int i) {
@@ -351,7 +343,7 @@ void isNumber(L *output, L *stack, int i) {
   stack->counter += 1;
 }
 
-void powOperator(L *output, L *stack, int i) {
+void powOperator(L *stack) {
   double r =
       pow(stack->value[stack->counter - 2], stack->value[stack->counter - 1]);
   stack->value[stack->counter - 2] = r;
@@ -400,4 +392,13 @@ void RpnScobe(L *pars, L *output, L *stack, int i) {
       stack->counter -= 1;
     }
   }
+}
+
+void toZero(L *a){
+  for(int i = 0; i < 255; i++){
+    a ->value[i] = 0;
+    a ->type[i] = 0;
+    a ->priority[i] = 0;
+  }
+  a ->counter = 0;
 }
