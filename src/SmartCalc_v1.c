@@ -1,7 +1,7 @@
 #include "SmartCalc_v1.h"
 
 
-int S21_SmartCalc(char *expression, char *expression_for_x, double *result) {
+int S21_SmartCalc(char *expression, double expression_for_x, double *result) {
   L pars;
   L output;
   L stack;
@@ -17,7 +17,7 @@ int S21_SmartCalc(char *expression, char *expression_for_x, double *result) {
   return error;
 }
 
-int parser(char *expression, char *expression_for_x, L *pars) {
+int parser(char *expression, double expression_for_x, L *pars) {
   int error = 0;
   int s_counter = 0;
   while (*expression != '\0' && error == 0) {
@@ -172,7 +172,7 @@ int validSign(char *expression, L *pars) {
   return valid;
 }
 
-int constAnalyze(char *expression, char *expression_for_x, L *pars,
+int constAnalyze(char *expression, double expression_for_x, L *pars,
                  int *error) {
   int step = 0;
   if (*expression != '\0') {
@@ -182,15 +182,7 @@ int constAnalyze(char *expression, char *expression_for_x, L *pars,
       setInputLexeme(pars, M_PI, NUM, number, &step);
       step += 1;
     } else if (*expression == 'X') {
-      if (isdigit(*expression_for_x) == 0) {
-        *error = 1;
-      } else {
-        double num = strtod(expression_for_x, &expression_for_x);
-        setInputLexeme(pars, num, NUM, number, &step);
-        if (*expression_for_x != '\0') {
-          *error = 1;
-        }
-      }
+      setInputLexeme(pars, expression_for_x, NUM, number, &step);
     }
   }
   return step;

@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QVector>
 
 
 extern"C"{
@@ -22,6 +23,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    QVector<double> x, y;
 
 private slots:
     void inputValue();
@@ -33,5 +35,6 @@ private slots:
     void on_pushButton_sqrt_clicked();
     void on_pushButton_pi_clicked();
     void on_pushButton_equal_clicked();
+    void on_Create_graph_clicked();
 };
 #endif // MAINWINDOW_H
