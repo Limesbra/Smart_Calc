@@ -59,7 +59,8 @@ int scobeChecker(char *expression, L *pars, int *s_counter, int *error);
 int logChecker(char *expression, L *pars);
 int arithmeticSign(char *expression, L *pars);
 int validSign(char *expression, L *pars);
-int constAnalyze(char *expression, double expression_for_x, L *pars, int *error);
+int constAnalyze(char *expression, double expression_for_x, L *pars,
+                 int *error);
 int handlerNum(char **expression, L *pars, int *error);
 void RPN(L *pars, L *output, L *stack);
 void toZero(L *a);
@@ -71,6 +72,9 @@ void isNumber(L *output, L *stack, int i);
 void powOperator(L *stack);
 void RpnMathOperators(L *pars, L *stack, int i);
 void RpnScobe(L *pars, L *output, L *stack, int i);
-
+void creditCalcDif(double size, double percent, double mDebt, double *payt,
+                   int *nPayment, double *total, double *overpay);
+void creditCalcAnnuity(double size, double ante, double period, double *total,
+                       double *overpay, double *result);
 
 #endif

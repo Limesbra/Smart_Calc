@@ -36,5 +36,7 @@ private slots:
     void on_pushButton_pi_clicked();
     void on_pushButton_equal_clicked();
     void on_Create_graph_clicked();
+    void on_pushButton_differentiated_clicked();
+    void on_pushButton_annuity_clicked();
 };
 #endif // MAINWINDOW_H

@@ -1,6 +1,5 @@
 #include "SmartCalc_v1.h"
 
-
 int S21_SmartCalc(char *expression, double expression_for_x, double *result) {
   L pars;
   L output;
@@ -33,7 +32,9 @@ int parser(char *expression, double expression_for_x, L *pars) {
       error = 1;
     }
   }
-  if(s_counter != 0){error = 1;}
+  if (s_counter != 0) {
+    error = 1;
+  }
   return error;
 }
 
@@ -84,7 +85,8 @@ int trigonometryCheck(char *expression, L *pars, int *error) {
 int scobeChecker(char *expression, L *pars, int *s_counter, int *error) {
   int step = 0;
   if (*expression != '\0' && (*expression == '(' || *expression == ')')) {
-    if (*expression == '(' && (*(expression + 1) != ')' || *(expression + 1) != '\0')) {
+    if (*expression == '(' &&
+        (*(expression + 1) != ')' || *(expression + 1) != '\0')) {
       setInputLexeme(pars, 0, leftScobe, scobe, &step);
       *s_counter += 1;
     } else if (*expression == ')' && *s_counter != 0) {
@@ -118,13 +120,13 @@ int arithmeticSign(char *expression, L *pars) {
   int step = 0;
   int valid = validSign(expression, pars);
   if (*expression == '+' && valid == 1) {
-    if(pars->counter == 0 || *(expression-1) == '('){
+    if (pars->counter == 0 || *(expression - 1) == '(') {
       setInputLexeme(pars, 0, NUM, number, &step);
       step = 0;
     }
     setInputLexeme(pars, 0, plus, plus_or_minus, &step);
   } else if (*expression == '-' && valid) {
-    if(pars->counter == 0 || *(expression-1) == '('){
+    if (pars->counter == 0 || *(expression - 1) == '(') {
       setInputLexeme(pars, 0, NUM, number, &step);
       step = 0;
     }
@@ -178,7 +180,7 @@ int constAnalyze(char *expression, double expression_for_x, L *pars,
   if (*expression != '\0') {
     if (*expression == 'e') {
       setInputLexeme(pars, M_E, NUM, number, &step);
-    } else if (*expression == 'p' && *(expression+1) == 'i') {
+    } else if (*expression == 'p' && *(expression + 1) == 'i') {
       setInputLexeme(pars, M_PI, NUM, number, &step);
       step += 1;
     } else if (*expression == 'X') {
@@ -190,10 +192,13 @@ int constAnalyze(char *expression, double expression_for_x, L *pars,
 
 int handlerNum(char **expression, L *pars, int *error) {
   int step = 0;
-  if(isdigit(**expression)){
+  if (isdigit(**expression)) {
     double num = strtod(*expression, expression);
     setInputLexeme(pars, num, NUM, number, &step);
-    if(**expression == '(' || **expression == 'a' || **expression == 'c' || **expression == 's' || **expression == 't' || **expression == 'l'){*error = 1;}
+    if (**expression == '(' || **expression == 'a' || **expression == 'c' ||
+        **expression == 's' || **expression == 't' || **expression == 'l') {
+      *error = 1;
+    }
   }
   return 0;
 }
@@ -386,11 +391,37 @@ void RpnScobe(L *pars, L *output, L *stack, int i) {
   }
 }
 
-void toZero(L *a){
-  for(int i = 0; i < 255; i++){
-    a ->value[i] = 0;
-    a ->type[i] = 0;
-    a ->priority[i] = 0;
+void toZero(L *a) {
+  for (int i = 0; i < 255; i++) {
+    a->value[i] = 0;
+    a->type[i] = 0;
+    a->priority[i] = 0;
   }
-  a ->counter = 0;
+  a->counter = 0;
+}
+
+void creditCalcDif(double size, double percent, double mDebt, double *payt,
+                   int *nPayment, double *total, double *overpay) {
+  double ctotal = size;
+  double bSize = size;
+  int i = 0;
+  int count = 1;
+  while (size > 0) {
+    double x = size * percent;
+    payt[i] = mDebt + x;
+    nPayment[i] = count;
+    ctotal += x;
+    i++;
+    size -= mDebt;
+  }
+  *total = ctotal;
+  double y = ctotal - bSize;
+  *overpay = y;
+}
+
+void creditCalcAnnuity(double size, double ante, double period, double *total,
+                       double *overpay, double *result) {
+  *result = size * (ante / (1 - pow(1 + ante, period * (-1))));
+  *total = *result * period;
+  *overpay = *total - size;
 }

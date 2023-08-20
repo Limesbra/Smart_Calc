@@ -95,11 +95,8 @@ void MainWindow::on_pushButton_pi_clicked()
 void MainWindow::on_pushButton_equal_clicked()
 {
     QString expression = (ui ->resultPanel->text().remove(" "));
-//    QString expression_for_x = (ui ->x_value->text());
     std::string expression_cpp = expression.toStdString();
-//    std::string expression_cpp_x = expression_for_x.toStdString();
     char *expression_c = (char *)expression_cpp.c_str();
-//    char *expression_c_x = (char *)expression_cpp_x.c_str();
     double expression_for_x = (ui ->x_value->text().toDouble());
     double result = 0;
     int error = S21_SmartCalc(expression_c, expression_for_x, &result);
@@ -144,5 +141,55 @@ void MainWindow::on_Create_graph_clicked()
         ui ->graph_place->graph(0)->setData(x,y);
         ui ->graph_place->replot();
     }
+}
+
+
+void MainWindow::on_pushButton_differentiated_clicked()
+{
+    ui->listWidget->clear();
+    double year = (ui ->year->text().toDouble());
+    double percent = (ui ->percent->text().toDouble());
+    double period = year*12;
+    double size = (ui ->money->text().toDouble());
+    double ante = percent /(100.0*12);
+    double mDebt = size / period;
+    double total = 0.0;
+    double overpay = 0.0;
+    double *payt = (double*)calloc(sizeof(double), period);
+    int *nPayment = (int*)calloc(sizeof(int), period);
+        creditCalcDif(size, ante, mDebt, payt, nPayment, &total, &overpay);
+        for(int i = 0; i < period; i++){
+            QString count = QString::number(i + 1) + '.' + "     ";
+            QString widget = count + QString::number(payt[i], 'f', 2) + '\n';
+            ui->listWidget->addItem(widget);
+        }
+    QString fOverpay = QString::number(overpay, 'f', 2);
+    ui->lineEdit_2->setText(fOverpay);
+    QString fTotal = QString::number(total, 'f', 2);
+    ui->lineEdit_3->setText(fTotal);
+    free(payt);
+    free(nPayment);
+}
+
+
+void MainWindow::on_pushButton_annuity_clicked()
+{
+    ui->listWidget->clear();
+    double year = (ui ->year->text().toDouble());
+    double percent = (ui ->percent->text().toDouble());
+    double period = year*12;
+    double size = (ui ->money->text().toDouble());
+    double ante = percent /(100 * 12);
+    double total = 0.0;
+    double overpay = 0.0;
+    double result = 0.0;
+    creditCalcAnnuity(size, ante, period, &total, &overpay, &result);
+    QString count = "ежемесячный платеж ";
+    QString widget = count + QString::number(result, 'f', 2) + '\n';
+    ui->listWidget->addItem(widget);
+    QString fOverpay = QString::number(overpay, 'f', 2);
+    ui->lineEdit_2->setText(fOverpay);
+    QString fTotal = QString::number(total, 'f', 2);
+    ui->lineEdit_3->setText(fTotal);
 }
 
