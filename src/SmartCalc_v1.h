@@ -59,8 +59,7 @@ int scobeChecker(char *expression, L *pars, int *s_counter, int *error);
 int logChecker(char *expression, L *pars);
 int arithmeticSign(char *expression, L *pars);
 int validSign(char *expression, L *pars);
-int constAnalyze(char *expression, double expression_for_x, L *pars,
-                 int *error);
+int constAnalyze(char *expression, double expression_for_x, L *pars);
 int handlerNum(char **expression, L *pars, int *error);
 void RPN(L *pars, L *output, L *stack);
 void toZero(L *a);

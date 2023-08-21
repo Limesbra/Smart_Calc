@@ -18,9 +18,9 @@ all : clean SmartCalc_v1.a test
 # uninstall:
 # dvi:
 # dist:
-# test: clean SmartCalc_v1.0.a
-# 	$(CC) $(CFLAGS) SmartCalc_v1.c -L. SmartCalc_v1.a -o test $(LIBS) 
-# 	./test
+test: clean SmartCalc_v1.a
+	$(CC) $(CFLAGS) SmartCalc_tests.c -L. SmartCalc_v1.a -o test $(LIBS) 
+	./test
 
 SmartCalc_v1.a: SmartCalc_v1.o
 	ar rcs SmartCalc_v1.a *.o
@@ -33,7 +33,7 @@ s21_gcov.gcno: clean
 	$(CC) $(CFLAGS) -c SmartCalc_v1.c $(GCOV_FLAGS)
 
 gcov_report: clean s21_gcov.gcno 
-	$(CC) SmartCalc_v1_test.c SmartCalc_v1.c -o test_check $(LIBS) $(GCOV_FLAGS)
+	$(CC) SmartCalc_tests.c SmartCalc_v1.c -o test_check $(LIBS) $(GCOV_FLAGS)
 	-./test_check > test.log
 	lcov --capture --directory . -o test.info
 	genhtml test.info -o report

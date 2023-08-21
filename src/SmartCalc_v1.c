@@ -26,7 +26,7 @@ int parser(char *expression, double expression_for_x, L *pars) {
     expression += scobeChecker(expression, pars, &s_counter, &error);
     expression += logChecker(expression, pars);
     expression += arithmeticSign(expression, pars);
-    expression += constAnalyze(expression, expression_for_x, pars, &error);
+    expression += constAnalyze(expression, expression_for_x, pars);
 
     if (expression == check) {
       error = 1;
@@ -149,7 +149,9 @@ int arithmeticSign(char *expression, L *pars) {
 
 int validSign(char *expression, L *pars) {
   int valid = 0;
-  if (isdigit(*(expression + 1)) != 0 || *(expression + 1) == 'X') {
+  if (isdigit(*(expression + 1)) != 0 || *(expression + 1) == 'X' ||
+      *(expression + 1) == 'e' ||
+      (*(expression + 1) == 'p' && *(expression + 2) == 'i')) {
     valid++;
   } else if (*(expression + 1) == '(') {
     valid++;
@@ -160,10 +162,10 @@ int validSign(char *expression, L *pars) {
   } else if (*(expression + 1) == 'c' || *(expression + 1) == 's' ||
              *(expression + 1) == 't') {
     valid++;
-  } else if ((*expression == '*' || *expression == '/' || *expression == '%' ||
-              *expression == '^') &&
-             pars->counter != 0) {
-    valid++;
+  }
+  if ((pars->counter == 0) && (*expression == '*' || *expression == '/' ||
+                               *expression == '%' || *expression == '^')) {
+    valid = 0;
   } else if (*expression == 's' && *(expression + 1) == 'q' &&
              *(expression + 2) == 'r' && *(expression + 3) == 't') {
     valid++;
@@ -174,8 +176,7 @@ int validSign(char *expression, L *pars) {
   return valid;
 }
 
-int constAnalyze(char *expression, double expression_for_x, L *pars,
-                 int *error) {
+int constAnalyze(char *expression, double expression_for_x, L *pars) {
   int step = 0;
   if (*expression != '\0') {
     if (*expression == 'e') {
@@ -388,6 +389,19 @@ void RpnScobe(L *pars, L *output, L *stack, int i) {
       stack->priority[stack->counter - 1] = 0;
       stack->counter -= 1;
     }
+    if (stack->priority[stack->counter - 1] == log_or_ln ||
+        stack->priority[stack->counter - 1] == trigonometry ||
+        stack->priority[stack->counter - 1] == PSQRT) {
+      output->value[0 + output->counter] = stack->value[stack->counter - 1];
+      output->type[0 + output->counter] = stack->type[stack->counter - 1];
+      output->priority[0 + output->counter] =
+          stack->priority[stack->counter - 1];
+      output->counter += 1;
+      stack->value[stack->counter - 1] = 0;
+      stack->type[stack->counter - 1] = 0;
+      stack->priority[stack->counter - 1] = 0;
+      stack->counter -= 1;
+    }
   }
 }
 
@@ -409,7 +423,7 @@ void creditCalcDif(double size, double percent, double mDebt, double *payt,
   while (size > 0) {
     double x = size * percent;
     payt[i] = mDebt + x;
-    nPayment[i] = count;
+    nPayment[i] = count + i;
     ctotal += x;
     i++;
     size -= mDebt;
@@ -422,6 +436,7 @@ void creditCalcDif(double size, double percent, double mDebt, double *payt,
 void creditCalcAnnuity(double size, double ante, double period, double *total,
                        double *overpay, double *result) {
   *result = size * (ante / (1 - pow(1 + ante, period * (-1))));
-  *total = *result * period;
+  double a = round(*result * 100) / 100;
+  *total = a * period;
   *overpay = *total - size;
 }

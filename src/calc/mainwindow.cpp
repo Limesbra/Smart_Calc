@@ -101,7 +101,7 @@ void MainWindow::on_pushButton_equal_clicked()
     double result = 0;
     int error = S21_SmartCalc(expression_c, expression_for_x, &result);
     if(error == 0){
-        QString answer = QString::number(result);
+        QString answer = QString::number(result, 'f', 7);
         ui->resultPanel->setText(answer);
     }
     else{
@@ -159,7 +159,7 @@ void MainWindow::on_pushButton_differentiated_clicked()
     int *nPayment = (int*)calloc(sizeof(int), period);
         creditCalcDif(size, ante, mDebt, payt, nPayment, &total, &overpay);
         for(int i = 0; i < period; i++){
-            QString count = QString::number(i + 1) + '.' + "     ";
+            QString count = QString::number(nPayment[i]) + '.' + "     ";
             QString widget = count + QString::number(payt[i], 'f', 2) + '\n';
             ui->listWidget->addItem(widget);
         }
@@ -177,9 +177,9 @@ void MainWindow::on_pushButton_annuity_clicked()
     ui->listWidget->clear();
     double year = (ui ->year->text().toDouble());
     double percent = (ui ->percent->text().toDouble());
-    double period = year*12;
+    double period = year*12.0;
     double size = (ui ->money->text().toDouble());
-    double ante = percent /(100 * 12);
+    double ante = percent /(100.0 * 12);
     double total = 0.0;
     double overpay = 0.0;
     double result = 0.0;

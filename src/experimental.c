@@ -86,7 +86,7 @@ int S21_SmartCalc(char *expression, char *expression_for_x, double *result) {
   L stack = {0, 0, 0, 0};
   int error = 0;
   error = parser(expression, expression_for_x, &pars);
-  for(int i = 0; i < pars.counter; i++){
+  for (int i = 0; i < pars.counter; i++) {
     printf("%lf ", pars.value[i]);
     printf("%d ", pars.type[i]);
     printf("%d ", pars.priority[i]);
@@ -115,7 +115,9 @@ int parser(char *expression, char *expression_for_x, L *pars) {
       error = 1;
     }
   }
-  if(s_counter != 0){error = 1;}
+  if (s_counter != 0) {
+    error = 1;
+  }
   return error;
 }
 
@@ -167,7 +169,8 @@ int trigonometryCheck(char *expression, L *pars, int *error) {
 int scobeChecker(char *expression, L *pars, int *s_counter, int *error) {
   int step = 0;
   if (*expression != '\0' && (*expression == '(' || *expression == ')')) {
-    if (*expression == '(' && (*(expression + 1) != ')' || *(expression + 1) != '\0')) {
+    if (*expression == '(' &&
+        (*(expression + 1) != ')' || *(expression + 1) != '\0')) {
       setInputLexeme(pars, 0, leftScobe, scobe, &step);
       *s_counter += 1;
     } else if (*expression == ')' && *s_counter != 0) {
@@ -201,13 +204,13 @@ int arithmeticSign(char *expression, L *pars, int *error) {
   int step = 0;
   int valid = validSign(expression, pars);
   if (*expression == '+' && valid == 1) {
-    if(pars->counter == 0 || *(expression-1) == '('){
+    if (pars->counter == 0 || *(expression - 1) == '(') {
       setInputLexeme(pars, 0, NUM, number, &step);
       step = 0;
     }
     setInputLexeme(pars, 0, plus, plus_or_minus, &step);
   } else if (*expression == '-' && valid) {
-    if(pars->counter == 0 || *(expression-1) == '('){
+    if (pars->counter == 0 || *(expression - 1) == '(') {
       setInputLexeme(pars, 0, NUM, number, &step);
       step = 0;
     }
@@ -261,7 +264,7 @@ int constAnalyze(char *expression, char *expression_for_x, L *pars,
   if (*expression != '\0') {
     if (*expression == 'e') {
       setInputLexeme(pars, M_E, NUM, number, &step);
-    } else if (*expression == 'p' && *(expression+1) == 'i') {
+    } else if (*expression == 'p' && *(expression + 1) == 'i') {
       setInputLexeme(pars, M_PI, NUM, number, &step);
       step += 1;
     } else if (*expression == 'X') {
@@ -281,10 +284,13 @@ int constAnalyze(char *expression, char *expression_for_x, L *pars,
 
 int handlerNum(char **expression, L *pars, int *error) {
   int step = 0;
-  if(isdigit(**expression)){
+  if (isdigit(**expression)) {
     double num = strtod(*expression, expression);
     setInputLexeme(pars, num, NUM, number, &step);
-    if(**expression == '(' || **expression == 'a' || **expression == 'c' || **expression == 's' || **expression == 't' || **expression == 'l'){*error = 1;}
+    if (**expression == '(' || **expression == 'a' || **expression == 'c' ||
+        **expression == 's' || **expression == 't' || **expression == 'l') {
+      *error = 1;
+    }
   }
   return 0;
 }
