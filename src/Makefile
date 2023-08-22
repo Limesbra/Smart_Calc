@@ -12,7 +12,7 @@ ifeq ($(UNAME), Linux)
 LIBS = -lcheck -lsubunit -pthread -lrt -lm
 endif
 
-all : clean SmartCalc_v1.a test
+all : clean SmartCalc_v1.a test install
 
 install: dist
 	@cd calc; qmake -o ../SmartCalc

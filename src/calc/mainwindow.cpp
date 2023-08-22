@@ -85,7 +85,7 @@ void MainWindow::on_pushButton_equal_clicked() {
   double result = 0;
   int error = S21_SmartCalc(expression_c, expression_for_x, &result);
   if (error == 0) {
-    QString answer = QString::number(result, 'f', 7);
+    QString answer = QString::number(result, 'g', 8);
     ui->resultPanel->setText(answer);
   } else {
     QString answer = "ERROR";
