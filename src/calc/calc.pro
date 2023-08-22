@@ -10,19 +10,16 @@ CONFIG += c++17
 
 SOURCES += \
     ../SmartCalc_v1.c \
-    form.cpp \
     main.cpp \
     mainwindow.cpp \
     qcustomplot.cpp
 
 HEADERS += \
     ../SmartCalc_v1.h \
-    form.h \
     mainwindow.h \
     qcustomplot.h
 
 FORMS += \
-    form.ui \
     mainwindow.ui
 
 # Default rules for deployment.

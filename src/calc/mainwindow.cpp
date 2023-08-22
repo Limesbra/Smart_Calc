@@ -94,10 +94,11 @@ void MainWindow::on_pushButton_pi_clicked()
 
 void MainWindow::on_pushButton_equal_clicked()
 {
+    double expression_for_x = 0.0;
     QString expression = (ui ->resultPanel->text().remove(" "));
     std::string expression_cpp = expression.toStdString();
     char *expression_c = (char *)expression_cpp.c_str();
-    double expression_for_x = (ui ->x_value->text().toDouble());
+    expression_for_x = (ui ->x_value->text().toDouble());
     double result = 0;
     int error = S21_SmartCalc(expression_c, expression_for_x, &result);
     if(error == 0){

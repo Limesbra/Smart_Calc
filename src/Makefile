@@ -14,10 +14,27 @@ endif
 
 all : clean SmartCalc_v1.a test
 
-# install:
-# uninstall:
-# dvi:
-# dist:
+install: dist
+	@cd calc; qmake -o ../SmartCalc
+	@cd SmartCalc; make
+	./SmartCalc/calc.app/Contents/MacOS/calc
+
+run:
+	./SmartCalc/calc.app/Contents/MacOS/calc
+
+uninstall:
+	@rm -rf SmartCalc
+dvi:
+	open manual.md
+dist:
+	@rm -rf SmartCalc
+	@rm -rf smart_calc.tar
+	@mkdir SmartCalc
+	@cp -r calc SmartCalc/
+	@cp  SmartCalc_v1.c SmartCalc_v1.h Makefile SmartCalc/
+	@tar -cf smart_calc.tar  SmartCalc/calc SmartCalc/SmartCalc_v1.c SmartCalc/SmartCalc_v1.h SmartCalc/Makefile
+	@rm -rf SmartCalc/calc SmartCalc/*.c SmartCalc/*.h SmartCalc/Makefile
+
 test: clean SmartCalc_v1.a
 	$(CC) $(CFLAGS) SmartCalc_tests.c -L. SmartCalc_v1.a -o test $(LIBS) 
 	./test
@@ -40,13 +57,13 @@ gcov_report: clean s21_gcov.gcno
 	open report/index.html
 
 clean:
-	rm -rf *.gcno *.gcda *.o *.a *.info SmartCalc_v1 report test test_check test.log
+	rm -rf *.gcno *.gcda *.o *.a *.info SmartCalc_v1 report test test_check test.log smart_calc.tar
 
 clang:
 	clang-format -style="{BasedOnStyle: Google}" -i *.c *.h
 
 val: clean SmartCalc_v1.a
-	$(CC) $(CFLAGS) SmartCalc_v1_test.c -L. SmartCalc_v1.a -o test $(LIBS) 
+	$(CC) $(CFLAGS) SmartCalc_tests.c -L. SmartCalc_v1.a -o test $(LIBS) 
 	valgrind --tool=memcheck --leak-check=yes ./test
 
 #valgrind --leak-check=full --show-leak-kinds=all
