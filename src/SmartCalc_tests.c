@@ -206,22 +206,24 @@ END_TEST
 START_TEST(SmartCalc_test_18) {
   double year = 1.0;
   double percent = 10.0;
-  double period = year*12;
+  double period = year * 12;
   double size = 1000000.0;
-  double ante = percent /(100.0*12);
+  double ante = percent / (100.0 * 12);
   double mDebt = size / period;
   double total = 0.0;
   double overpay = 0.0;
-  double *payt = (double*)calloc(sizeof(double), period);
-  int *nPayment = (int*)calloc(sizeof(int), period);
+  double *payt = (double *)calloc(sizeof(double), period);
+  int *nPayment = (int *)calloc(sizeof(int), period);
 
-  double true[12] = {91666.670, 90972.220, 90277.780, 89583.330, 88888.890, 88194.440, 87500.000, 86805.560, 86111.110, 85416.670, 84722.220, 84027.780};
+  double true[12] = {91666.670, 90972.220, 90277.780, 89583.330,
+                     88888.890, 88194.440, 87500.000, 86805.560,
+                     86111.110, 85416.670, 84722.220, 84027.780};
   double total_true = 1054166.670;
   double overpay_true = 54166.670;
 
   creditCalcDif(size, ante, mDebt, payt, nPayment, &total, &overpay);
 
-  for(int i = 0; i < period; i++){
+  for (int i = 0; i < period; i++) {
     ck_assert_double_eq_tol(payt[i], true[i], 0.01);
   }
 
@@ -238,9 +240,9 @@ END_TEST
 START_TEST(SmartCalc_test_19) {
   double year = 1.0;
   double percent = 10.0;
-  double period = year*12;
+  double period = year * 12;
   double size = 1000000.0;
-  double ante = percent /(100.0 * 12);
+  double ante = percent / (100.0 * 12);
   double total = 0.0;
   double overpay = 0.0;
   double result = 0.0;
@@ -250,12 +252,11 @@ START_TEST(SmartCalc_test_19) {
   double overpay_true = 54990.680;
 
   creditCalcAnnuity(size, ante, period, &total, &overpay, &result);
-  
+
   ck_assert_double_eq_tol(result, result_true, 0.01);
 
   ck_assert_double_eq_tol(total, total_true, 0.01);
   ck_assert_double_eq_tol(overpay, overpay_true, 0.01);
-
 }
 END_TEST
 
