@@ -1,6 +1,6 @@
 #include "SmartCalc_v1.h"
 
-int S21_SmartCalc(char *expression, double expression_for_x, double *result) {
+int SmartCalc(char *expression, double expression_for_x, double *result) {
   L pars;
   L output;
   L stack;

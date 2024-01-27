@@ -83,7 +83,7 @@ void MainWindow::on_pushButton_equal_clicked() {
   char *expression_c = (char *)expression_cpp.c_str();
   expression_for_x = (ui->x_value->text().toDouble());
   double result = 0;
-  int error = S21_SmartCalc(expression_c, expression_for_x, &result);
+  int error = SmartCalc(expression_c, expression_for_x, &result);
   if (error == 0) {
     QString answer = QString::number(result, 'g', 8);
     ui->resultPanel->setText(answer);

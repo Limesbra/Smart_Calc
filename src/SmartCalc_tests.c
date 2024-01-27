@@ -11,7 +11,7 @@ START_TEST(SmartCalc_test_1) {
   char expression[255] = "-5";
   double expression_for_x = 0.0;
 
-  ck_assert_int_eq(S21_SmartCalc(expression, expression_for_x, &result), 0);
+  ck_assert_int_eq(SmartCalc(expression, expression_for_x, &result), 0);
   ck_assert_double_eq_tol(result, -5.0, EPS);
 }
 END_TEST
@@ -23,7 +23,7 @@ START_TEST(SmartCalc_test_2) {
   char expression[255] = "aafafxcdvrdbd566wfcwf  segwg sgegrf";
   double expression_for_x = 0.0;
 
-  ck_assert_int_eq(S21_SmartCalc(expression, expression_for_x, &result), 1);
+  ck_assert_int_eq(SmartCalc(expression, expression_for_x, &result), 1);
 }
 END_TEST
 
@@ -34,7 +34,7 @@ START_TEST(SmartCalc_test_3) {
   char expression[255] = "0+4*6/12-0";
   double expression_for_x = 0.0;
 
-  ck_assert_int_eq(S21_SmartCalc(expression, expression_for_x, &result), 0);
+  ck_assert_int_eq(SmartCalc(expression, expression_for_x, &result), 0);
   ck_assert_double_eq_tol(result, 2.0, EPS);
 }
 END_TEST
@@ -46,7 +46,7 @@ START_TEST(SmartCalc_test_4) {
   char expression[255] = "2^3^2";
   double expression_for_x = 0.0;
 
-  ck_assert_int_eq(S21_SmartCalc(expression, expression_for_x, &result), 0);
+  ck_assert_int_eq(SmartCalc(expression, expression_for_x, &result), 0);
   ck_assert_double_eq_tol(result, 512.0, EPS);
 }
 END_TEST
@@ -58,7 +58,7 @@ START_TEST(SmartCalc_test_5) {
   char expression[255] = "sqrt(4)";
   double expression_for_x = 0.0;
 
-  ck_assert_int_eq(S21_SmartCalc(expression, expression_for_x, &result), 0);
+  ck_assert_int_eq(SmartCalc(expression, expression_for_x, &result), 0);
   ck_assert_double_eq_tol(result, 2.0, EPS);
 }
 END_TEST
@@ -70,7 +70,7 @@ START_TEST(SmartCalc_test_6) {
   char expression[255] = "log(10)+ln(4)";
   double expression_for_x = 0.0;
 
-  ck_assert_int_eq(S21_SmartCalc(expression, expression_for_x, &result), 0);
+  ck_assert_int_eq(SmartCalc(expression, expression_for_x, &result), 0);
   ck_assert_double_eq_tol(result, 2.38629436112, EPS);
 }
 END_TEST
@@ -82,7 +82,7 @@ START_TEST(SmartCalc_test_7) {
   char expression[255] = "acos(0)+cos(1)+asin(1)+sin(0)+atan(0)+tan(1)";
   double expression_for_x = 0.0;
 
-  ck_assert_int_eq(S21_SmartCalc(expression, expression_for_x, &result), 0);
+  ck_assert_int_eq(SmartCalc(expression, expression_for_x, &result), 0);
   ck_assert_double_eq_tol(result, 5.23930266, EPS);
 }
 END_TEST
@@ -94,7 +94,7 @@ START_TEST(SmartCalc_test_8) {
   char expression[255] = "cos(pi)";
   double expression_for_x = 0.0;
 
-  ck_assert_int_eq(S21_SmartCalc(expression, expression_for_x, &result), 0);
+  ck_assert_int_eq(SmartCalc(expression, expression_for_x, &result), 0);
   ck_assert_double_eq_tol(result, -1.0, EPS);
 }
 END_TEST
@@ -106,7 +106,7 @@ START_TEST(SmartCalc_test_9) {
   char expression[255] = "X^2";
   double expression_for_x = 2.0;
 
-  ck_assert_int_eq(S21_SmartCalc(expression, expression_for_x, &result), 0);
+  ck_assert_int_eq(SmartCalc(expression, expression_for_x, &result), 0);
   ck_assert_double_eq_tol(result, 4.0, EPS);
 }
 END_TEST
@@ -118,7 +118,7 @@ START_TEST(SmartCalc_test_10) {
   char expression[255] = "+e";
   double expression_for_x = 0.0;
 
-  ck_assert_int_eq(S21_SmartCalc(expression, expression_for_x, &result), 0);
+  ck_assert_int_eq(SmartCalc(expression, expression_for_x, &result), 0);
   ck_assert_double_eq_tol(result, 2.71828182, EPS);
 }
 END_TEST
@@ -130,7 +130,7 @@ START_TEST(SmartCalc_test_11) {
   char expression[255] = "(((()))";
   double expression_for_x = 0.0;
 
-  ck_assert_int_eq(S21_SmartCalc(expression, expression_for_x, &result), 1);
+  ck_assert_int_eq(SmartCalc(expression, expression_for_x, &result), 1);
 }
 END_TEST
 
@@ -141,7 +141,7 @@ START_TEST(SmartCalc_test_12) {
   char expression[255] = "7acos";
   double expression_for_x = 0.0;
 
-  ck_assert_int_eq(S21_SmartCalc(expression, expression_for_x, &result), 1);
+  ck_assert_int_eq(SmartCalc(expression, expression_for_x, &result), 1);
 }
 END_TEST
 
@@ -152,7 +152,7 @@ START_TEST(SmartCalc_test_13) {
   char expression[255] = "srt";
   double expression_for_x = 0.0;
 
-  ck_assert_int_eq(S21_SmartCalc(expression, expression_for_x, &result), 1);
+  ck_assert_int_eq(SmartCalc(expression, expression_for_x, &result), 1);
 }
 END_TEST
 
@@ -163,7 +163,7 @@ START_TEST(SmartCalc_test_14) {
   char expression[255] = ")(";
   double expression_for_x = 0.0;
 
-  ck_assert_int_eq(S21_SmartCalc(expression, expression_for_x, &result), 1);
+  ck_assert_int_eq(SmartCalc(expression, expression_for_x, &result), 1);
 }
 END_TEST
 
@@ -174,7 +174,7 @@ START_TEST(SmartCalc_test_15) {
   char expression[255] = "10%2";
   double expression_for_x = 0.0;
 
-  ck_assert_int_eq(S21_SmartCalc(expression, expression_for_x, &result), 0);
+  ck_assert_int_eq(SmartCalc(expression, expression_for_x, &result), 0);
 }
 END_TEST
 
@@ -185,7 +185,7 @@ START_TEST(SmartCalc_test_16) {
   char expression[255] = "3+(4*4)";
   double expression_for_x = 0.0;
 
-  ck_assert_int_eq(S21_SmartCalc(expression, expression_for_x, &result), 0);
+  ck_assert_int_eq(SmartCalc(expression, expression_for_x, &result), 0);
   ck_assert_double_eq_tol(result, 19.0, EPS);
 }
 END_TEST
@@ -197,7 +197,7 @@ START_TEST(SmartCalc_test_17) {
   char expression[255] = "*4";
   double expression_for_x = 0.0;
 
-  ck_assert_int_eq(S21_SmartCalc(expression, expression_for_x, &result), 1);
+  ck_assert_int_eq(SmartCalc(expression, expression_for_x, &result), 1);
 }
 END_TEST
 

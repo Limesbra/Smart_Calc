@@ -50,7 +50,7 @@ typedef struct {
   int counter;
 } L;
 
-int S21_SmartCalc(char *expression, double expression_for_x, double *result);
+int SmartCalc(char *expression, double expression_for_x, double *result);
 int parser(char *expression, double expression_for_x, L *pars);
 void setInputLexeme(L *pars, double num, lexeme_type type,
                     lexeme_priority type_1, int *step);
