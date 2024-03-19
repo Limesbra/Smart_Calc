@@ -1,0 +1,44 @@
+\doxysection{s21\+\_\+\+RPN.\+h}
+\hypertarget{s21___r_p_n_8h_source}{}\label{s21___r_p_n_8h_source}\index{model/s21\_RPN.h@{model/s21\_RPN.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CPP3\_SMARTCALC\_V2\_0\_1\_SRC\_MODEL\_S21\_RPN\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CPP3\_SMARTCALC\_V2\_0\_1\_SRC\_MODEL\_S21\_RPN\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stack>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}s21\_pars.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }s21\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classs21_1_1_r_p_n}{RPN}}\ \{}
+\DoxyCodeLine{00013\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \textcolor{comment}{/*Constructor\ and\ destructor*/}}
+\DoxyCodeLine{00015\ \ \ \mbox{\hyperlink{classs21_1_1_r_p_n}{RPN}}()}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ :\ pars(\textcolor{keyword}{new}\ \mbox{\hyperlink{classs21_1_1_pars}{Pars}}()),}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ out(std::queue<Token>()),}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ stack(std::stack<Token>())\{\};}
+\DoxyCodeLine{00019\ \ \ \mbox{\hyperlink{classs21_1_1_r_p_n}{\string~RPN}}()\ \{\ \textcolor{keyword}{delete}\ pars;\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \textcolor{comment}{/*Methods*/}}
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classs21_1_1_r_p_n_ada7b0a7c07fda5eb68a26f34be8a1922}{ToPostfix}}(std::string\&\ expr,\ std::string\&\ X);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classs21_1_1_r_p_n_a8265028f296de7cf5d4060c47b1987f0}{Empty}}();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00030\ \ \ \mbox{\hyperlink{classs21_1_1_token}{Token}}\ \mbox{\hyperlink{classs21_1_1_r_p_n_a8f12a1ad0a13896996739595f2d1d492}{GetToken}}();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classs21_1_1_r_p_n_a28ab50b56c5ee9f32409e92a09f35c83}{ClearRPN}}();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00036\ \ \ \textcolor{comment}{/*Fields*/}}
+\DoxyCodeLine{00037\ \ \ \mbox{\hyperlink{classs21_1_1_pars}{Pars}}*\ pars;}
+\DoxyCodeLine{00038\ \ \ std::queue<Token>\ out;}
+\DoxyCodeLine{00039\ \ \ std::stack<Token>\ stack;}
+\DoxyCodeLine{00040\ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \}\ \ \textcolor{comment}{//\ namespace\ s21}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ CPP3\_SMARTCALC\_V2\_0\_1\_SRC\_MODEL\_S21\_RPN\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,81 @@
+\doxysection{s21\+::Calc Class Reference}
+\hypertarget{classs21_1_1_calc}{}\label{classs21_1_1_calc}\index{s21::Calc@{s21::Calc}}
+
+
+Class for evaluating expressions.  
+
+
+
+
+{\ttfamily \#include $<$s21\+\_\+calculate.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classs21_1_1_calc_afffc8da21509ed9f78f925870b775fcd}{Calculate}} (std\+::string \&expr, std\+::string \&X)
+\begin{DoxyCompactList}\small\item\em Computes the result of an expression in reverse Polish notation. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classs21_1_1_calc_abb1fc510432b3fbdf700ad34efcd55e7}{Take\+Operand}} ()
+\begin{DoxyCompactList}\small\item\em Pops an operand from the stack. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classs21_1_1_calc_a603bfff7dcfcaf92a0636a41bcf80d09}{Get\+Result}} ()
+\begin{DoxyCompactList}\small\item\em Pops an operand from the stack. \end{DoxyCompactList}\item 
+\Hypertarget{classs21_1_1_calc_aa1a1058b34164a221ce8c4c81be1ae3f}\label{classs21_1_1_calc_aa1a1058b34164a221ce8c4c81be1ae3f} 
+void {\bfseries Clear\+Calc} ()
+\begin{DoxyCompactList}\small\item\em Clears class fields. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for evaluating expressions. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classs21_1_1_calc_afffc8da21509ed9f78f925870b775fcd}\label{classs21_1_1_calc_afffc8da21509ed9f78f925870b775fcd} 
+\index{s21::Calc@{s21::Calc}!Calculate@{Calculate}}
+\index{Calculate@{Calculate}!s21::Calc@{s21::Calc}}
+\doxysubsubsection{\texorpdfstring{Calculate()}{Calculate()}}
+{\footnotesize\ttfamily int s21\+::\+Calc\+::\+Calculate (\begin{DoxyParamCaption}\item[{std\+::string \&}]{expr,  }\item[{std\+::string \&}]{X }\end{DoxyParamCaption})}
+
+
+
+Computes the result of an expression in reverse Polish notation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em expr} & The line with expression \\
+\hline
+{\em X} & stores the value of a variable Х \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the error code 
+\end{DoxyReturn}
+\Hypertarget{classs21_1_1_calc_a603bfff7dcfcaf92a0636a41bcf80d09}\label{classs21_1_1_calc_a603bfff7dcfcaf92a0636a41bcf80d09} 
+\index{s21::Calc@{s21::Calc}!GetResult@{GetResult}}
+\index{GetResult@{GetResult}!s21::Calc@{s21::Calc}}
+\doxysubsubsection{\texorpdfstring{GetResult()}{GetResult()}}
+{\footnotesize\ttfamily double s21\+::\+Calc\+::\+Get\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Pops an operand from the stack. 
+
+\begin{DoxyReturn}{Returns}
+Returns the result of expression 
+\end{DoxyReturn}
+\Hypertarget{classs21_1_1_calc_abb1fc510432b3fbdf700ad34efcd55e7}\label{classs21_1_1_calc_abb1fc510432b3fbdf700ad34efcd55e7} 
+\index{s21::Calc@{s21::Calc}!TakeOperand@{TakeOperand}}
+\index{TakeOperand@{TakeOperand}!s21::Calc@{s21::Calc}}
+\doxysubsubsection{\texorpdfstring{TakeOperand()}{TakeOperand()}}
+{\footnotesize\ttfamily double s21\+::\+Calc\+::\+Take\+Operand (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Pops an operand from the stack. 
+
+\begin{DoxyReturn}{Returns}
+Returns the value of the operand 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+model/s21\+\_\+calculate.\+h\item 
+model/s21\+\_\+calculate.\+cc\end{DoxyCompactItemize}

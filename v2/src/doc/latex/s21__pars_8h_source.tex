@@ -1,0 +1,55 @@
+\doxysection{s21\+\_\+pars.\+h}
+\hypertarget{s21__pars_8h_source}{}\label{s21__pars_8h_source}\index{model/s21\_pars.h@{model/s21\_pars.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CPP3\_SMARTCALC\_V2\_0\_1\_SRC\_MODEL\_S21\_PARS\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CPP3\_SMARTCALC\_V2\_0\_1\_SRC\_MODEL\_S21\_PARS\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}s21\_token.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }s21\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classs21_1_1_pars}{Pars}}\ \{}
+\DoxyCodeLine{00013\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \textcolor{comment}{/*Constructor\ and\ destructor*/}}
+\DoxyCodeLine{00015\ \ \ \mbox{\hyperlink{classs21_1_1_pars}{Pars}}();}
+\DoxyCodeLine{00016\ \ \ \mbox{\hyperlink{classs21_1_1_pars}{\string~Pars}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \textcolor{comment}{/*Methods*/}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classs21_1_1_pars_a740e48a2938ac265795d2e3dcffa5bda}{Tokenization}}(std::string\&\ expr,\ std::string\&\ X);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00025\ \ \ \mbox{\hyperlink{classs21_1_1_token}{Token}}\ \mbox{\hyperlink{classs21_1_1_pars_a12ff035105c99cfaf8b4c119fc904d5a}{GetListItem}}();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classs21_1_1_pars_a8091062da7a24391da51bf1b02709b92}{empty}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classs21_1_1_pars_a6c4ab1f591176305ebeee05d3b2683aa}{ClearPars}}();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00035\ \ \ \textcolor{comment}{/*Methods*/}}
+\DoxyCodeLine{00037\ \ \ \textcolor{keywordtype}{void}\ ReplaceXToValue(std::string\&\ expr,\ std::string\&\ X);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{void}\ OperatorTokenization(std::string\&\ expr,\ std::string\&\ X);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{void}\ BracketsTokenization(std::string\&\ expr);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{void}\ FuncTokenization(std::string\&\ expr);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{void}\ ValueTokenization(std::string\&\ expr,\ std::string\&\ X);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{void}\ ConvertFromNotation(std::string\&\ expr,\ std::string\&\ X,\ \textcolor{keywordtype}{double}\&\ d);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{comment}{/*Fields*/}}
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{int}\ count;}
+\DoxyCodeLine{00056\ \ \ std::list<Token>\ listOfTokens;}
+\DoxyCodeLine{00057\ \ \ std::string\ operators;}
+\DoxyCodeLine{00058\ \};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \}\ \ \textcolor{comment}{//\ namespace\ s21}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ S21\_PARS\_H}}
+
+\end{DoxyCode}

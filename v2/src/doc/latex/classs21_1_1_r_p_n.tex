@@ -1,0 +1,50 @@
+\doxysection{s21\+::RPN Class Reference}
+\hypertarget{classs21_1_1_r_p_n}{}\label{classs21_1_1_r_p_n}\index{s21::RPN@{s21::RPN}}
+
+
+Class for converting to reverse Polish notation.  
+
+
+
+
+{\ttfamily \#include $<$s21\+\_\+\+RPN.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classs21_1_1_r_p_n_ada7b0a7c07fda5eb68a26f34be8a1922}\label{classs21_1_1_r_p_n_ada7b0a7c07fda5eb68a26f34be8a1922} 
+void {\bfseries To\+Postfix} (std\+::string \&expr, std\+::string \&X)
+\begin{DoxyCompactList}\small\item\em Converting to reverse Polish notation. \end{DoxyCompactList}\item 
+\Hypertarget{classs21_1_1_r_p_n_a8265028f296de7cf5d4060c47b1987f0}\label{classs21_1_1_r_p_n_a8265028f296de7cf5d4060c47b1987f0} 
+bool {\bfseries Empty} ()
+\begin{DoxyCompactList}\small\item\em Checks the output string for emptyness. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classs21_1_1_token}{Token}} \mbox{\hyperlink{classs21_1_1_r_p_n_a8f12a1ad0a13896996739595f2d1d492}{Get\+Token}} ()
+\begin{DoxyCompactList}\small\item\em Returns the token from the output queue. \end{DoxyCompactList}\item 
+\Hypertarget{classs21_1_1_r_p_n_a28ab50b56c5ee9f32409e92a09f35c83}\label{classs21_1_1_r_p_n_a28ab50b56c5ee9f32409e92a09f35c83} 
+void {\bfseries Clear\+RPN} ()
+\begin{DoxyCompactList}\small\item\em Clears the output queue and stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for converting to reverse Polish notation. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classs21_1_1_r_p_n_a8f12a1ad0a13896996739595f2d1d492}\label{classs21_1_1_r_p_n_a8f12a1ad0a13896996739595f2d1d492} 
+\index{s21::RPN@{s21::RPN}!GetToken@{GetToken}}
+\index{GetToken@{GetToken}!s21::RPN@{s21::RPN}}
+\doxysubsubsection{\texorpdfstring{GetToken()}{GetToken()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classs21_1_1_token}{Token}} s21\+::\+RPN\+::\+Get\+Token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the token from the output queue. 
+
+\begin{DoxyReturn}{Returns}
+token; 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+model/s21\+\_\+\+RPN.\+h\item 
+model/s21\+\_\+\+RPN.\+cc\end{DoxyCompactItemize}

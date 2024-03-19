@@ -1,0 +1,60 @@
+\doxysection{s21\+\_\+model.\+h}
+\hypertarget{s21__model_8h_source}{}\label{s21__model_8h_source}\index{model/s21\_model.h@{model/s21\_model.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CPP3\_SMARTCALC\_V2\_0\_1\_SRC\_MODEL\_S21\_MODEL\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CPP3\_SMARTCALC\_V2\_0\_1\_SRC\_MODEL\_S21\_MODEL\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <locale>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}s21\_calculate.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}s21\_credit.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}s21\_graph.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }s21\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classs21_1_1_model}{Model}}\ \{}
+\DoxyCodeLine{00015\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \textcolor{comment}{/*Constructor\ and\ destructor*/}}
+\DoxyCodeLine{00017\ \ \ \mbox{\hyperlink{classs21_1_1_model}{Model}}()\ :\ calc\_(\textcolor{keyword}{new}\ \mbox{\hyperlink{classs21_1_1_calc}{Calc}}()),\ graph\_(\textcolor{keyword}{new}\ \mbox{\hyperlink{classs21_1_1_graph}{Graph}}),\ credit\_(\textcolor{keyword}{new}\ \mbox{\hyperlink{classs21_1_1_credit}{Credit}})\{\};}
+\DoxyCodeLine{00018\ \ \ \mbox{\hyperlink{classs21_1_1_model}{\string~Model}}();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \textcolor{comment}{/*Methods*/}}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classs21_1_1_model_a49cb9bb77cfcdf4c42114e97f53aa21e}{MakeCalc}}(std::string\&\ expr,\ std::string\&\ X);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classs21_1_1_model_afcb60a29c8182e757ef251cfcbb81453}{MakeGraph}}(std::string\&\ expr,\ \textcolor{keywordtype}{double}\&\ xBegin,\ \textcolor{keywordtype}{double}\&\ xEnd,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\&\ yBegin,\ \textcolor{keywordtype}{double}\&\ yEnd);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classs21_1_1_model_a090ed28c52e3117ccdc67da32ca30719}{CreditAnnuity}}(std::vector<double>\&\ data);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classs21_1_1_model_a11c08d7672402ce375eb07fb0a900c42}{CreditDiff}}(std::vector<double>\&\ data);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classs21_1_1_model_a43abad9cb767469da47b212166b2024b}{GetResult}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00040\ \ \ std::string\ \mbox{\hyperlink{classs21_1_1_model_a141e81ffe6196124d0561a85307b794b}{GetError}}();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00044\ \ \ std::vector<double>\ \mbox{\hyperlink{classs21_1_1_model_a30bcc1b21289a78c421f0f997bb0cfbd}{GetVectorXfromGraph}}();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00048\ \ \ std::vector<double>\ \mbox{\hyperlink{classs21_1_1_model_ac7237bbab6a124eb77b343cdb174e867}{GetVectorYfromGraph}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00052\ \ \ std::vector<double>\ \mbox{\hyperlink{classs21_1_1_model_a4b340f6893af2a54f01c54b55a62b04c}{GetVectorAnnuity}}();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00056\ \ \ std::vector<double>\ \mbox{\hyperlink{classs21_1_1_model_a0ac12af1cfef789ebb7bfe44a12af461}{GetVectorDiff}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00059\ \ \ \textcolor{comment}{/*Methods*/}}
+\DoxyCodeLine{00061\ \ \ \textcolor{keywordtype}{void}\ ClearModel();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \textcolor{comment}{/*Fields*/}}
+\DoxyCodeLine{00064\ \ \ \mbox{\hyperlink{classs21_1_1_calc}{Calc}}*\ calc\_;}
+\DoxyCodeLine{00065\ \ \ \mbox{\hyperlink{classs21_1_1_graph}{Graph}}*\ graph\_;}
+\DoxyCodeLine{00066\ \ \ \mbox{\hyperlink{classs21_1_1_credit}{Credit}}*\ credit\_;}
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordtype}{double}\ result;}
+\DoxyCodeLine{00068\ \ \ std::string\ error;}
+\DoxyCodeLine{00069\ \};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \}\ \ \textcolor{comment}{//\ namespace\ s21}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ CPP3\_SMARTCALC\_V2\_0\_1\_SRC\_MODEL\_S21\_MODEL\_H}}
+
+\end{DoxyCode}

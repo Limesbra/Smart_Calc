@@ -1,0 +1,128 @@
+\doxysection{s21\+::Model Class Reference}
+\hypertarget{classs21_1_1_model}{}\label{classs21_1_1_model}\index{s21::Model@{s21::Model}}
+
+
+Сlass model stores and accesses basic data and performs operations determined by the business logic of the program based on requests.  
+
+
+
+
+{\ttfamily \#include $<$s21\+\_\+model.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classs21_1_1_model_a49cb9bb77cfcdf4c42114e97f53aa21e}\label{classs21_1_1_model_a49cb9bb77cfcdf4c42114e97f53aa21e} 
+void {\bfseries Make\+Calc} (std\+::string \&expr, std\+::string \&X)
+\begin{DoxyCompactList}\small\item\em Calls functions for calculation. \end{DoxyCompactList}\item 
+\Hypertarget{classs21_1_1_model_afcb60a29c8182e757ef251cfcbb81453}\label{classs21_1_1_model_afcb60a29c8182e757ef251cfcbb81453} 
+void {\bfseries Make\+Graph} (std\+::string \&expr, double \&x\+Begin, double \&x\+End, double \&y\+Begin, double \&y\+End)
+\begin{DoxyCompactList}\small\item\em Calls functions to calculate a graph. \end{DoxyCompactList}\item 
+\Hypertarget{classs21_1_1_model_a090ed28c52e3117ccdc67da32ca30719}\label{classs21_1_1_model_a090ed28c52e3117ccdc67da32ca30719} 
+void {\bfseries Credit\+Annuity} (std\+::vector$<$ double $>$ \&data)
+\begin{DoxyCompactList}\small\item\em Calls functions to calculate annuity credit. \end{DoxyCompactList}\item 
+\Hypertarget{classs21_1_1_model_a11c08d7672402ce375eb07fb0a900c42}\label{classs21_1_1_model_a11c08d7672402ce375eb07fb0a900c42} 
+void {\bfseries Credit\+Diff} (std\+::vector$<$ double $>$ \&data)
+\begin{DoxyCompactList}\small\item\em Calls functions to calculate differentiated credit. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classs21_1_1_model_a43abad9cb767469da47b212166b2024b}{Get\+Result}} ()
+\begin{DoxyCompactList}\small\item\em Returns the result from the model. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classs21_1_1_model_a141e81ffe6196124d0561a85307b794b}{Get\+Error}} ()
+\begin{DoxyCompactList}\small\item\em Returns an error message. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classs21_1_1_model_a30bcc1b21289a78c421f0f997bb0cfbd}{Get\+Vector\+Xfrom\+Graph}} ()
+\begin{DoxyCompactList}\small\item\em returns a vector with coordinates for the graph. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classs21_1_1_model_ac7237bbab6a124eb77b343cdb174e867}{Get\+Vector\+Yfrom\+Graph}} ()
+\begin{DoxyCompactList}\small\item\em returns a vector with coordinates for the graph. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classs21_1_1_model_a4b340f6893af2a54f01c54b55a62b04c}{Get\+Vector\+Annuity}} ()
+\begin{DoxyCompactList}\small\item\em returns a vector with values for annuity. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classs21_1_1_model_a0ac12af1cfef789ebb7bfe44a12af461}{Get\+Vector\+Diff}} ()
+\begin{DoxyCompactList}\small\item\em returns a vector with values for differentiated. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Сlass model stores and accesses basic data and performs operations determined by the business logic of the program based on requests. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classs21_1_1_model_a141e81ffe6196124d0561a85307b794b}\label{classs21_1_1_model_a141e81ffe6196124d0561a85307b794b} 
+\index{s21::Model@{s21::Model}!GetError@{GetError}}
+\index{GetError@{GetError}!s21::Model@{s21::Model}}
+\doxysubsubsection{\texorpdfstring{GetError()}{GetError()}}
+{\footnotesize\ttfamily std\+::string s21\+::\+Model\+::\+Get\+Error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns an error message. 
+
+\begin{DoxyReturn}{Returns}
+Returns a string with text 
+\end{DoxyReturn}
+\Hypertarget{classs21_1_1_model_a43abad9cb767469da47b212166b2024b}\label{classs21_1_1_model_a43abad9cb767469da47b212166b2024b} 
+\index{s21::Model@{s21::Model}!GetResult@{GetResult}}
+\index{GetResult@{GetResult}!s21::Model@{s21::Model}}
+\doxysubsubsection{\texorpdfstring{GetResult()}{GetResult()}}
+{\footnotesize\ttfamily double s21\+::\+Model\+::\+Get\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the result from the model. 
+
+\begin{DoxyReturn}{Returns}
+Returns the value of the result 
+\end{DoxyReturn}
+\Hypertarget{classs21_1_1_model_a4b340f6893af2a54f01c54b55a62b04c}\label{classs21_1_1_model_a4b340f6893af2a54f01c54b55a62b04c} 
+\index{s21::Model@{s21::Model}!GetVectorAnnuity@{GetVectorAnnuity}}
+\index{GetVectorAnnuity@{GetVectorAnnuity}!s21::Model@{s21::Model}}
+\doxysubsubsection{\texorpdfstring{GetVectorAnnuity()}{GetVectorAnnuity()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ s21\+::\+Model\+::\+Get\+Vector\+Annuity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns a vector with values for annuity. 
+
+\begin{DoxyReturn}{Returns}
+Returns std\+::vector with values 
+\end{DoxyReturn}
+\Hypertarget{classs21_1_1_model_a0ac12af1cfef789ebb7bfe44a12af461}\label{classs21_1_1_model_a0ac12af1cfef789ebb7bfe44a12af461} 
+\index{s21::Model@{s21::Model}!GetVectorDiff@{GetVectorDiff}}
+\index{GetVectorDiff@{GetVectorDiff}!s21::Model@{s21::Model}}
+\doxysubsubsection{\texorpdfstring{GetVectorDiff()}{GetVectorDiff()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ s21\+::\+Model\+::\+Get\+Vector\+Diff (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns a vector with values for differentiated. 
+
+\begin{DoxyReturn}{Returns}
+Returns std\+::vector with values 
+\end{DoxyReturn}
+\Hypertarget{classs21_1_1_model_a30bcc1b21289a78c421f0f997bb0cfbd}\label{classs21_1_1_model_a30bcc1b21289a78c421f0f997bb0cfbd} 
+\index{s21::Model@{s21::Model}!GetVectorXfromGraph@{GetVectorXfromGraph}}
+\index{GetVectorXfromGraph@{GetVectorXfromGraph}!s21::Model@{s21::Model}}
+\doxysubsubsection{\texorpdfstring{GetVectorXfromGraph()}{GetVectorXfromGraph()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ s21\+::\+Model\+::\+Get\+Vector\+Xfrom\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns a vector with coordinates for the graph. 
+
+\begin{DoxyReturn}{Returns}
+Returns std\+::vector with coordinates 
+\end{DoxyReturn}
+\Hypertarget{classs21_1_1_model_ac7237bbab6a124eb77b343cdb174e867}\label{classs21_1_1_model_ac7237bbab6a124eb77b343cdb174e867} 
+\index{s21::Model@{s21::Model}!GetVectorYfromGraph@{GetVectorYfromGraph}}
+\index{GetVectorYfromGraph@{GetVectorYfromGraph}!s21::Model@{s21::Model}}
+\doxysubsubsection{\texorpdfstring{GetVectorYfromGraph()}{GetVectorYfromGraph()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ s21\+::\+Model\+::\+Get\+Vector\+Yfrom\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns a vector with coordinates for the graph. 
+
+\begin{DoxyReturn}{Returns}
+Returns std\+::vector with coordinates 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+model/s21\+\_\+model.\+h\item 
+model/s21\+\_\+model.\+cc\end{DoxyCompactItemize}

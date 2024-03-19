@@ -1,0 +1,114 @@
+\doxysection{s21\+::Token Class Reference}
+\hypertarget{classs21_1_1_token}{}\label{classs21_1_1_token}\index{s21::Token@{s21::Token}}
+
+
+Class for storing tokens.  
+
+
+
+
+{\ttfamily \#include $<$s21\+\_\+token.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classs21_1_1_token_a3c2de7e7506ba6c8d6dcec3ecc356a44}\label{classs21_1_1_token_a3c2de7e7506ba6c8d6dcec3ecc356a44} 
+enum {\bfseries Token\+Type} \{ \newline
+{\bfseries NUM} = 0
+, {\bfseries PLUS}
+, {\bfseries MINUS}
+, {\bfseries MUL}
+, \newline
+{\bfseries DIV}
+, {\bfseries MOD}
+, {\bfseries POW}
+, {\bfseries SQRT}
+, \newline
+{\bfseries LOG}
+, {\bfseries LN}
+, {\bfseries SIN}
+, {\bfseries ASIN}
+, \newline
+{\bfseries COS}
+, {\bfseries ACOS}
+, {\bfseries TAN}
+, {\bfseries ATAN}
+, \newline
+{\bfseries LBRACKET}
+, {\bfseries RBRACKET}
+ \}
+\item 
+\Hypertarget{classs21_1_1_token_a41b78906819e0ea4467f7911ff1b8969}\label{classs21_1_1_token_a41b78906819e0ea4467f7911ff1b8969} 
+enum {\bfseries Token\+Priority} \{ \newline
+{\bfseries NUM\+\_\+} = 0
+, {\bfseries PLUS\+\_\+\+OR\+\_\+\+MINUS}
+, {\bfseries MUL\+\_\+\+OR\+\_\+\+DIV\+\_\+\+OR\+\_\+\+MOD}
+, {\bfseries POW\+\_\+}
+, \newline
+{\bfseries FUNCTION}
+, {\bfseries BRACKET} = 0
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classs21_1_1_token_a74f7b47e0ed4c6a9a8a3aa5763bf1b32}{Priority}} ()
+\begin{DoxyCompactList}\small\item\em Returns priority. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classs21_1_1_token_a8c83938624c7a0af7bcf3791f7203e3e}{Type}} ()
+\begin{DoxyCompactList}\small\item\em Returns type. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classs21_1_1_token_a915b8824e308ae17af9d789a6ea88257}{Value}} ()
+\begin{DoxyCompactList}\small\item\em Returns value. \end{DoxyCompactList}\item 
+\Hypertarget{classs21_1_1_token_ae6c63ff0041e9736f62f783a8ae96622}\label{classs21_1_1_token_ae6c63ff0041e9736f62f783a8ae96622} 
+void {\bfseries Set\+Character} (Token\+Priority a, Token\+Type b, double c)
+\begin{DoxyCompactList}\small\item\em Writes data about a token. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for storing tokens. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classs21_1_1_token_a74f7b47e0ed4c6a9a8a3aa5763bf1b32}\label{classs21_1_1_token_a74f7b47e0ed4c6a9a8a3aa5763bf1b32} 
+\index{s21::Token@{s21::Token}!Priority@{Priority}}
+\index{Priority@{Priority}!s21::Token@{s21::Token}}
+\doxysubsubsection{\texorpdfstring{Priority()}{Priority()}}
+{\footnotesize\ttfamily int s21\+::\+Token\+::\+Priority (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns priority. 
+
+\begin{DoxyReturn}{Returns}
+Returns the value from enum Token\+Priority 
+\end{DoxyReturn}
+\Hypertarget{classs21_1_1_token_a8c83938624c7a0af7bcf3791f7203e3e}\label{classs21_1_1_token_a8c83938624c7a0af7bcf3791f7203e3e} 
+\index{s21::Token@{s21::Token}!Type@{Type}}
+\index{Type@{Type}!s21::Token@{s21::Token}}
+\doxysubsubsection{\texorpdfstring{Type()}{Type()}}
+{\footnotesize\ttfamily int s21\+::\+Token\+::\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns type. 
+
+\begin{DoxyReturn}{Returns}
+Returns the value from enum Token\+Type 
+\end{DoxyReturn}
+\Hypertarget{classs21_1_1_token_a915b8824e308ae17af9d789a6ea88257}\label{classs21_1_1_token_a915b8824e308ae17af9d789a6ea88257} 
+\index{s21::Token@{s21::Token}!Value@{Value}}
+\index{Value@{Value}!s21::Token@{s21::Token}}
+\doxysubsubsection{\texorpdfstring{Value()}{Value()}}
+{\footnotesize\ttfamily double s21\+::\+Token\+::\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns value. 
+
+\begin{DoxyReturn}{Returns}
+Returns the value if it is a number 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+model/s21\+\_\+token.\+h\item 
+model/s21\+\_\+token.\+cc\end{DoxyCompactItemize}

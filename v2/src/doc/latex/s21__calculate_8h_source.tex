@@ -1,0 +1,62 @@
+\doxysection{s21\+\_\+calculate.\+h}
+\hypertarget{s21__calculate_8h_source}{}\label{s21__calculate_8h_source}\index{model/s21\_calculate.h@{model/s21\_calculate.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CPP3\_SMARTCALC\_V2\_0\_1\_SRC\_MODEL\_S21\_CALCULATE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CPP3\_SMARTCALC\_V2\_0\_1\_SRC\_MODEL\_S21\_CALCULATE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}s21\_RPN.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }s21\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ Sum(\textcolor{keywordtype}{double}\ a,\ \textcolor{keywordtype}{double}\ b)\ \{\ \textcolor{keywordflow}{return}\ a\ +\ b;\ \};}
+\DoxyCodeLine{00013\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ Sub(\textcolor{keywordtype}{double}\ a,\ \textcolor{keywordtype}{double}\ b)\ \{\ \textcolor{keywordflow}{return}\ a\ -\/\ b;\ \};}
+\DoxyCodeLine{00014\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ Mul(\textcolor{keywordtype}{double}\ a,\ \textcolor{keywordtype}{double}\ b)\ \{\ \textcolor{keywordflow}{return}\ a\ *\ b;\ \};}
+\DoxyCodeLine{00015\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ Div(\textcolor{keywordtype}{double}\ a,\ \textcolor{keywordtype}{double}\ b)\ \{\ \textcolor{keywordflow}{return}\ a\ /\ b;\ \};}
+\DoxyCodeLine{00016\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ Pow(\textcolor{keywordtype}{double}\ a,\ \textcolor{keywordtype}{double}\ b)\ \{\ \textcolor{keywordflow}{return}\ std::pow(a,\ b);\ \};}
+\DoxyCodeLine{00017\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ Mod(\textcolor{keywordtype}{double}\ a,\ \textcolor{keywordtype}{double}\ b)\ \{\ \textcolor{keywordflow}{return}\ std::fmod(a,\ b);\ \};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ Sin(\textcolor{keywordtype}{double}\ a)\ \{\ \textcolor{keywordflow}{return}\ sin(a);\ \};}
+\DoxyCodeLine{00021\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ Cos(\textcolor{keywordtype}{double}\ a)\ \{\ \textcolor{keywordflow}{return}\ cos(a);\ \};}
+\DoxyCodeLine{00022\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ Tan(\textcolor{keywordtype}{double}\ a)\ \{\ \textcolor{keywordflow}{return}\ tan(a);\ \};}
+\DoxyCodeLine{00023\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ Asin(\textcolor{keywordtype}{double}\ a)\ \{\ \textcolor{keywordflow}{return}\ asin(a);\ \};}
+\DoxyCodeLine{00024\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ Acos(\textcolor{keywordtype}{double}\ a)\ \{\ \textcolor{keywordflow}{return}\ acos(a);\ \};}
+\DoxyCodeLine{00025\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ Atan(\textcolor{keywordtype}{double}\ a)\ \{\ \textcolor{keywordflow}{return}\ atan(a);\ \};}
+\DoxyCodeLine{00026\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ Sqrt(\textcolor{keywordtype}{double}\ a)\ \{\ \textcolor{keywordflow}{return}\ sqrt(a);\ \};}
+\DoxyCodeLine{00027\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ Log(\textcolor{keywordtype}{double}\ a)\ \{\ \textcolor{keywordflow}{return}\ std::log10(a);\ \};}
+\DoxyCodeLine{00028\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ Ln(\textcolor{keywordtype}{double}\ a)\ \{\ \textcolor{keywordflow}{return}\ std::log(a);\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classs21_1_1_calc}{Calc}}\ \{}
+\DoxyCodeLine{00032\ \ \ \textcolor{keyword}{typedef}\ double\ (*func\_ptr\_bin)(double,\ double);}
+\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{typedef}\ double\ (*func\_ptr\_un)(double);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \textcolor{comment}{/*Constructor\ and\ destructor*/}}
+\DoxyCodeLine{00037\ \ \ \mbox{\hyperlink{classs21_1_1_calc}{Calc}}();}
+\DoxyCodeLine{00038\ \ \ \mbox{\hyperlink{classs21_1_1_calc}{\string~Calc}}()\ \{\ \textcolor{keyword}{delete}\ r;\ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{comment}{/*Methods*/}}
+\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classs21_1_1_calc_afffc8da21509ed9f78f925870b775fcd}{Calculate}}(std::string\&\ expr,\ std::string\&\ X);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classs21_1_1_calc_abb1fc510432b3fbdf700ad34efcd55e7}{TakeOperand}}();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classs21_1_1_calc_a603bfff7dcfcaf92a0636a41bcf80d09}{GetResult}}();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classs21_1_1_calc_aa1a1058b34164a221ce8c4c81be1ae3f}{ClearCalc}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00059\ \ \ \textcolor{comment}{/*Fields*/}}
+\DoxyCodeLine{00060\ \ \ \mbox{\hyperlink{classs21_1_1_r_p_n}{RPN}}*\ r;}
+\DoxyCodeLine{00061\ \ \ std::stack<double>\ stackForCalc;}
+\DoxyCodeLine{00062\ \ \ std::map<int,\ func\_ptr\_bin>\ funcBin;}
+\DoxyCodeLine{00063\ \ \ std::map<int,\ func\_ptr\_un>\ funcUn;}
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{double}\ result;}
+\DoxyCodeLine{00065\ \};}
+\DoxyCodeLine{00066\ \}\ \ \textcolor{comment}{//\ namespace\ s21}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ CPP3\_SMARTCALC\_V2\_0\_1\_SRC\_MODEL\_S21\_CALCULATE\_H}}
+
+\end{DoxyCode}

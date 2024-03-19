@@ -1,0 +1,62 @@
+\doxysection{s21\+::Pars Class Reference}
+\hypertarget{classs21_1_1_pars}{}\label{classs21_1_1_pars}\index{s21::Pars@{s21::Pars}}
+
+
+Class for token parsing and error handling.  
+
+
+
+
+{\ttfamily \#include $<$s21\+\_\+pars.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classs21_1_1_pars_a740e48a2938ac265795d2e3dcffa5bda}\label{classs21_1_1_pars_a740e48a2938ac265795d2e3dcffa5bda} 
+void {\bfseries Tokenization} (std\+::string \&expr, std\+::string \&X)
+\begin{DoxyCompactList}\small\item\em Translating an expression into tokens. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classs21_1_1_token}{Token}} \mbox{\hyperlink{classs21_1_1_pars_a12ff035105c99cfaf8b4c119fc904d5a}{Get\+List\+Item}} ()
+\begin{DoxyCompactList}\small\item\em Return with removal of the first token from the list. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classs21_1_1_pars_a8091062da7a24391da51bf1b02709b92}{empty}} ()
+\begin{DoxyCompactList}\small\item\em Сhecking for emptiness. \end{DoxyCompactList}\item 
+\Hypertarget{classs21_1_1_pars_a6c4ab1f591176305ebeee05d3b2683aa}\label{classs21_1_1_pars_a6c4ab1f591176305ebeee05d3b2683aa} 
+void {\bfseries Clear\+Pars} ()
+\begin{DoxyCompactList}\small\item\em Clears the list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for token parsing and error handling. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classs21_1_1_pars_a8091062da7a24391da51bf1b02709b92}\label{classs21_1_1_pars_a8091062da7a24391da51bf1b02709b92} 
+\index{s21::Pars@{s21::Pars}!empty@{empty}}
+\index{empty@{empty}!s21::Pars@{s21::Pars}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily bool s21\+::\+Pars\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Сhecking for emptiness. 
+
+\begin{DoxyReturn}{Returns}
+true or false. 
+\end{DoxyReturn}
+\Hypertarget{classs21_1_1_pars_a12ff035105c99cfaf8b4c119fc904d5a}\label{classs21_1_1_pars_a12ff035105c99cfaf8b4c119fc904d5a} 
+\index{s21::Pars@{s21::Pars}!GetListItem@{GetListItem}}
+\index{GetListItem@{GetListItem}!s21::Pars@{s21::Pars}}
+\doxysubsubsection{\texorpdfstring{GetListItem()}{GetListItem()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classs21_1_1_token}{Token}} s21\+::\+Pars\+::\+Get\+List\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return with removal of the first token from the list. 
+
+\begin{DoxyReturn}{Returns}
+Returns token from the list. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+model/s21\+\_\+pars.\+h\item 
+model/s21\+\_\+pars.\+cc\end{DoxyCompactItemize}

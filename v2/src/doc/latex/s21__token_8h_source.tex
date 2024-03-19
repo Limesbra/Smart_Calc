@@ -1,0 +1,68 @@
+\doxysection{s21\+\_\+token.\+h}
+\hypertarget{s21__token_8h_source}{}\label{s21__token_8h_source}\index{model/s21\_token.h@{model/s21\_token.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CPP3\_SMARTCALC\_V2\_0\_1\_SRC\_MODEL\_S21\_TOKEN\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CPP3\_SMARTCALC\_V2\_0\_1\_SRC\_MODEL\_S21\_TOKEN\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }s21\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classs21_1_1_token}{Token}}\ \{}
+\DoxyCodeLine{00010\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \textcolor{keyword}{enum}\ TokenType\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ NUM\ =\ 0,}
+\DoxyCodeLine{00013\ \ \ \ \ PLUS,}
+\DoxyCodeLine{00014\ \ \ \ \ MINUS,}
+\DoxyCodeLine{00015\ \ \ \ \ MUL,}
+\DoxyCodeLine{00016\ \ \ \ \ DIV,}
+\DoxyCodeLine{00017\ \ \ \ \ MOD,}
+\DoxyCodeLine{00018\ \ \ \ \ POW,}
+\DoxyCodeLine{00019\ \ \ \ \ SQRT,}
+\DoxyCodeLine{00020\ \ \ \ \ LOG,}
+\DoxyCodeLine{00021\ \ \ \ \ LN,}
+\DoxyCodeLine{00022\ \ \ \ \ SIN,}
+\DoxyCodeLine{00023\ \ \ \ \ ASIN,}
+\DoxyCodeLine{00024\ \ \ \ \ COS,}
+\DoxyCodeLine{00025\ \ \ \ \ ACOS,}
+\DoxyCodeLine{00026\ \ \ \ \ TAN,}
+\DoxyCodeLine{00027\ \ \ \ \ ATAN,}
+\DoxyCodeLine{00028\ \ \ \ \ LBRACKET,}
+\DoxyCodeLine{00029\ \ \ \ \ RBRACKET}
+\DoxyCodeLine{00030\ \ \ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{keyword}{enum}\ TokenPriority\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ NUM\_\ =\ 0,}
+\DoxyCodeLine{00034\ \ \ \ \ PLUS\_OR\_MINUS,}
+\DoxyCodeLine{00035\ \ \ \ \ MUL\_OR\_DIV\_OR\_MOD,}
+\DoxyCodeLine{00036\ \ \ \ \ POW\_,}
+\DoxyCodeLine{00037\ \ \ \ \ FUNCTION,}
+\DoxyCodeLine{00038\ \ \ \ \ BRACKET\ =\ 0}
+\DoxyCodeLine{00039\ \ \ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \textcolor{comment}{/*Constructor\ and\ destructor*/}}
+\DoxyCodeLine{00042\ \ \ \mbox{\hyperlink{classs21_1_1_token}{Token}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{classs21_1_1_token}{\string~Token}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \textcolor{comment}{/*Methods*/}}
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classs21_1_1_token_a74f7b47e0ed4c6a9a8a3aa5763bf1b32}{Priority}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classs21_1_1_token_a8c83938624c7a0af7bcf3791f7203e3e}{Type}}();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classs21_1_1_token_a915b8824e308ae17af9d789a6ea88257}{Value}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classs21_1_1_token_ae6c63ff0041e9736f62f783a8ae96622}{SetCharacter}}(TokenPriority\ a,\ TokenType\ b,\ \textcolor{keywordtype}{double}\ c);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00062\ \ \ \textcolor{comment}{/*Fields*/}}
+\DoxyCodeLine{00063\ \ \ TokenPriority\ priority;}
+\DoxyCodeLine{00064\ \ \ TokenType\ type;}
+\DoxyCodeLine{00065\ \ \ \textcolor{keywordtype}{double}\ value;}
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \}\ \ \textcolor{comment}{//\ namespace\ s21}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ S21\_TOKEN\_H}}
+
+\end{DoxyCode}
